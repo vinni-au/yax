@@ -60,11 +60,15 @@ bool YAXModels::fromXML(QString filename)
                         QString question = variableElem.attribute("question");
                         QString domainName = variableElem.attribute("domain");
 
+                        Domain* domain = 0;
                         QList<Domain*> dlist = m_domainModel->domainsList();
-                        for (int i = 0; i < dlist.count(); ++i)
-                            ;
+                        for (int i = 0; i < dlist.count() && !domain; ++i)
+                            if (dlist.at(i)->name == domainName)
+                                domain = dlist[i];
 
-                        Variable* variable = new Variable(variableElem.attribute("name"));
+                        Variable* variable = new Variable(variableElem.attribute("name"), domain,
+                                                          derivable, askable, question);
+                        m_variablesModel->addVariable(variable);
                     }
                 m_variablesModel->needsReset();
 

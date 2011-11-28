@@ -10,7 +10,7 @@
 	</domains>
 	
 	<variables>
-		<variable name="БОЛЬ" askable="true" derivable="false" domain="ЛОГИЧЕСКИЙ" question="" />
+		<variable name="БОЛЬ" askable="true" derivable="false" domain="ЛОГИЧЕСКИЙ" question="У вас болит голова?" />
 	</variables>
 	
 	<rules>

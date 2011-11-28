@@ -35,14 +35,14 @@ QVariant RulesTreeItem::data(int role) const
             result = QVariant(m_rule->name);
             break;
         case If:
-            result = QVariant("ÅÑËÈ ");
+            result = QVariant("Ð•Ð¡Ð›Ð˜ ");
             break;
         case Then:
-            result = QVariant("ÒÎ ");
+            result = QVariant("Ð¢Ðž ");
             break;
         case Reason:
             if (role == Qt::DisplayRole)
-                result = QVariant("Ò.Ê. " + m_rule->reasoning);
+                result = QVariant("Ð¢.Ðš. " + m_rule->reasoning);
             else if (role == Qt::EditRole)
                 result = m_rule->reasoning;
             break;

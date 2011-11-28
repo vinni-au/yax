@@ -79,9 +79,9 @@ void MainWindow::helpAboutQt()
 
 void MainWindow::setupUI()
 {
-    m_domainsDock   = new DomainsDockWidget(tr("Äîìåíû"));
-    m_variablesDock = new VariablesDockWidget(tr("Ïåðåìåííûå"));
-    m_rulesDock     = new RulesDockWidget(tr("Ïðàâèëà"));
+    m_domainsDock   = new DomainsDockWidget(tr("Ð”Ð¾Ð¼ÐµÐ½Ñ‹"));
+    m_variablesDock = new VariablesDockWidget(tr("ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ"));
+    m_rulesDock     = new RulesDockWidget(tr("ÐŸÑ€Ð°Ð²Ð¸Ð»Ð°"));
 
     m_domainsDock->setVisible(false);
     m_variablesDock->setVisible(false);
@@ -93,40 +93,40 @@ void MainWindow::setupUI()
 
     QMenuBar* mainMenu = menuBar();
 
-    m_menuFile      = mainMenu->addMenu(tr("Ôàéë"));
-    m_menuEdit      = mainMenu->addMenu(tr("Ðåäàêòèðîâàòü"));
-    m_menuConsult   = mainMenu->addMenu(tr("Êîíñóëüòàöèÿ"));
-    m_menuHelp      = mainMenu->addMenu(tr("Ñïðàâêà"));
+    m_menuFile      = mainMenu->addMenu(tr("Ð¤Ð°Ð¹Ð»"));
+    m_menuEdit      = mainMenu->addMenu(tr("Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ"));
+    m_menuConsult   = mainMenu->addMenu(tr("ÐšÐ¾Ð½ÑÑƒÐ»ÑŒÑ‚Ð°Ñ†Ð¸Ñ"));
+    m_menuHelp      = mainMenu->addMenu(tr("Ð¡Ð¿Ñ€Ð°Ð²ÐºÐ°"));
 
-    m_actFileCreate = m_menuFile->addAction(tr("Ñîçäàòü ÝÑ"),
+    m_actFileCreate = m_menuFile->addAction(tr("Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð­Ð¡"),
                                             this, SLOT(fileCreate()));
-    m_actFileOpen   = m_menuFile->addAction(tr("Îòêðûòü ÝÑ..."),
+    m_actFileOpen   = m_menuFile->addAction(tr("ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð­Ð¡..."),
                                             this, SLOT(fileOpen()));
-    m_actFileSave   = m_menuFile->addAction(tr("Ñîõðàíèòü ÝÑ..."),
+    m_actFileSave   = m_menuFile->addAction(tr("Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð­Ð¡..."),
                                             this, SLOT(fileSave()));
-    m_actFileSaveAs = m_menuFile->addAction(tr("Ñîõðàíèòü ÝÑ êàê..."),
+    m_actFileSaveAs = m_menuFile->addAction(tr("Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð­Ð¡ ÐºÐ°Ðº..."),
                                             this, SLOT(fileSaveAs()));
     m_menuFile->addSeparator();
-    m_actFileQuit   = m_menuFile->addAction(tr("Âûõîä"),
+    m_actFileQuit   = m_menuFile->addAction(tr("Ð’Ñ‹Ñ…Ð¾Ð´"),
                                             this, SLOT(fileQuit()));
 
-    m_actEditDomains    = m_menuEdit->addAction(tr("Äîìåíû..."),
+    m_actEditDomains    = m_menuEdit->addAction(tr("Ð”Ð¾Ð¼ÐµÐ½Ñ‹..."),
                                                 this, SLOT(editDomains()));
-    m_actEditVariables  = m_menuEdit->addAction(tr("Ïåðåìåííûå..."),
+    m_actEditVariables  = m_menuEdit->addAction(tr("ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ..."),
                                                 this, SLOT(editVariables()));
-    m_actEditRules      = m_menuEdit->addAction(tr("Ïðàâèëà..."),
+    m_actEditRules      = m_menuEdit->addAction(tr("ÐŸÑ€Ð°Ð²Ð¸Ð»Ð°..."),
                                                 this, SLOT(editRules()));
 
-    m_actConsultGoal        = m_menuConsult->addAction(tr("Çàäàòü öåëü êîíñóëüòàöèè..."),
+    m_actConsultGoal        = m_menuConsult->addAction(tr("Ð—Ð°Ð´Ð°Ñ‚ÑŒ Ñ†ÐµÐ»ÑŒ ÐºÐ¾Ð½ÑÑƒÐ»ÑŒÑ‚Ð°Ñ†Ð¸Ð¸..."),
                                                        this, SLOT(consultGoal()));
-    m_actConsultConsult     = m_menuConsult->addAction(tr("Íà÷àòü êîíñóëüòàöèþ..."),
+    m_actConsultConsult     = m_menuConsult->addAction(tr("ÐÐ°Ñ‡Ð°Ñ‚ÑŒ ÐºÐ¾Ð½ÑÑƒÐ»ÑŒÑ‚Ð°Ñ†Ð¸ÑŽ..."),
                                                        this, SLOT(consultConsult()));
-    m_actConsultReasoning   = m_menuConsult->addAction(tr("Îáúÿñíåíèå..."),
+    m_actConsultReasoning   = m_menuConsult->addAction(tr("ÐžÐ±ÑŠÑÑÐ½ÐµÐ½Ð¸Ðµ..."),
                                                        this, SLOT(consultReasoning()));
 
-    m_actHelpAbout      = m_menuHelp->addAction(tr("Î ïðîãðàììå..."),
+    m_actHelpAbout      = m_menuHelp->addAction(tr("Ðž Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ..."),
                                                 this, SLOT(helpAbout()));
-    m_actHelpAboutQt    = m_menuHelp->addAction(tr("Î Qt..."),
+    m_actHelpAboutQt    = m_menuHelp->addAction(tr("Ðž Qt..."),
                                                 this, SLOT(helpAboutQt()));
 }
 

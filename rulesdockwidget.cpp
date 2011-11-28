@@ -12,14 +12,14 @@ RulesWidget::RulesWidget(QWidget *parent)
     m_premisesView    = new QListView;
     m_conclusionsView = new QListView;
 
-    m_btnRuleAdd          = new QPushButton(tr("Äîáàâèòü"));
-    m_btnRuleDelete       = new QPushButton(tr("Óäàëèòü"));
-    m_btnRuleUp           = new QPushButton(tr("Âûøå"));
-    m_btnRuleDown         = new QPushButton(tr("Íèæå"));
-    m_btnPremiseAdd       = new QPushButton(tr("Äîáàâèòü"));
-    m_btnPremiseDelete    = new QPushButton(tr("Óäàëèòü"));
-    m_btnConclusionAdd    = new QPushButton(tr("Äîáàâèòü"));
-    m_btnConclusionDelete = new QPushButton(tr("Óäàëèòü"));
+    m_btnRuleAdd          = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnRuleDelete       = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
+    m_btnRuleUp           = new QPushButton(tr("Ð’Ñ‹ÑˆÐµ"));
+    m_btnRuleDown         = new QPushButton(tr("ÐÐ¸Ð¶Ðµ"));
+    m_btnPremiseAdd       = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnPremiseDelete    = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
+    m_btnConclusionAdd    = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnConclusionDelete = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
 
     topSplitter->addWidget(m_rulesView);
 
@@ -35,7 +35,7 @@ RulesWidget::RulesWidget(QWidget *parent)
 
     topSplitter->addWidget(trWidget);
 
-    QGroupBox* blWidget = new QGroupBox(tr("Ïîñûëêè"));
+    QGroupBox* blWidget = new QGroupBox(tr("ÐŸÐ¾ÑÑ‹Ð»ÐºÐ¸"));
     QHBoxLayout* hbl    = new QHBoxLayout;
     blWidget->setLayout(hbl);
     hbl->addWidget(m_premisesView);
@@ -47,7 +47,7 @@ RulesWidget::RulesWidget(QWidget *parent)
 
     hbl->addLayout(vbl);
 
-    QGroupBox* brWidget = new QGroupBox(tr("Çàêëþ÷åíèÿ"));
+    QGroupBox* brWidget = new QGroupBox(tr("Ð—Ð°ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ"));
     QHBoxLayout* hbr    = new QHBoxLayout;
     brWidget->setLayout(hbr);
     hbr->addWidget(m_conclusionsView);

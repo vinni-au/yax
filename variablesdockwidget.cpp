@@ -5,15 +5,15 @@ VariablesWidget::VariablesWidget(QWidget *parent) :
 {
     m_variablesList = new QListView;
 
-    m_btnVariableAdd    = new QPushButton(tr("Äîáàâèòü"));
-    m_btnVariableChange = new QPushButton(tr("Èçìåíèòü"));
-    m_btnVariableDelete = new QPushButton(tr("Óäàëèòü"));
+    m_btnVariableAdd    = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnVariableChange = new QPushButton(tr("Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"));
+    m_btnVariableDelete = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
 
-    m_btnVariableUp     = new QPushButton(tr("Âûøå"));
-    m_btnVariableDown   = new QPushButton(tr("Íèæå"));
+    m_btnVariableUp     = new QPushButton(tr("Ð’Ñ‹ÑˆÐµ"));
+    m_btnVariableDown   = new QPushButton(tr("ÐÐ¸Ð¶Ðµ"));
 
-    m_cbDerivable   = new QCheckBox(tr("Âûâîäèìàÿ"));
-    m_cbAskable     = new QCheckBox(tr("Çàïðàøèâàåìàÿ"));
+    m_cbDerivable   = new QCheckBox(tr("Ð’Ñ‹Ð²Ð¾Ð´Ð¸Ð¼Ð°Ñ"));
+    m_cbAskable     = new QCheckBox(tr("Ð—Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÐ¼Ð°Ñ"));
 
     m_cbbDomain     = new QComboBox;
 
@@ -33,7 +33,7 @@ VariablesWidget::VariablesWidget(QWidget *parent) :
     rlayout->addWidget(m_btnVariableUp);
     rlayout->addWidget(m_btnVariableDown);
 
-    QGroupBox* gbType = new QGroupBox(tr("Òèï"));
+    QGroupBox* gbType = new QGroupBox(tr("Ð¢Ð¸Ð¿"));
     QVBoxLayout* ltype = new QVBoxLayout;
     gbType->setLayout(ltype);
     ltype->addWidget(m_cbDerivable);
@@ -41,14 +41,14 @@ VariablesWidget::VariablesWidget(QWidget *parent) :
 
     rlayout->addWidget(gbType);
 
-    QGroupBox* gbDomain = new QGroupBox(tr("Äîìåí"));
+    QGroupBox* gbDomain = new QGroupBox(tr("Ð”Ð¾Ð¼ÐµÐ½"));
     QVBoxLayout* lDomain = new QVBoxLayout;
     gbDomain->setLayout(lDomain);
     lDomain->addWidget(m_cbbDomain);
 
     rlayout->addWidget(gbDomain);
 
-    QGroupBox* gbQuestion = new QGroupBox(tr("Âîïðîñ"));
+    QGroupBox* gbQuestion = new QGroupBox(tr("Ð’Ð¾Ð¿Ñ€Ð¾Ñ"));
     QVBoxLayout* lquest = new QVBoxLayout;
     gbQuestion->setLayout(lquest);
     lquest->addWidget(m_pteQuestion);

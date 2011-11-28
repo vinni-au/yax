@@ -6,18 +6,18 @@ DomainsWidget::DomainsWidget(QWidget *parent) :
     m_domainsList = new QListView;
     m_valuesList = new QListView;
 
-    QGroupBox* lwidget = new QGroupBox(tr("Äîìåíû"));
-    QGroupBox* rwidget = new QGroupBox(tr("Çíà÷åíèÿ"));
+    QGroupBox* lwidget = new QGroupBox(tr("Ð”Ð¾Ð¼ÐµÐ½Ñ‹"));
+    QGroupBox* rwidget = new QGroupBox(tr("Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ"));
 
     QVBoxLayout* lvlayout = new QVBoxLayout;
     QHBoxLayout* lhlayout = new QHBoxLayout;
 
-    m_btnDomainAdd = new QPushButton(tr("Äîáàâèòü"));
-    m_btnDomainChange = new QPushButton(tr("Èçìåíèòü"));
-    m_btnDomainDelete = new QPushButton(tr("Óäàëèòü"));
+    m_btnDomainAdd = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnDomainChange = new QPushButton(tr("Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"));
+    m_btnDomainDelete = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
 
-    m_btnDomainUp = new QPushButton(tr("Âûøå"));
-    m_btnDomainDown = new QPushButton(tr("Íèæå"));
+    m_btnDomainUp = new QPushButton(tr("Ð’Ñ‹ÑˆÐµ"));
+    m_btnDomainDown = new QPushButton(tr("ÐÐ¸Ð¶Ðµ"));
 
     lvlayout->setSpacing(5);
     lvlayout->addWidget(m_btnDomainAdd);
@@ -35,12 +35,12 @@ DomainsWidget::DomainsWidget(QWidget *parent) :
     QVBoxLayout* rvlayout = new QVBoxLayout;
     QHBoxLayout* rhlayout = new QHBoxLayout;
 
-    m_btnValueAdd = new QPushButton(tr("Äîáàâèòü"));
-    m_btnValueChange = new QPushButton(tr("Èçìåíèòü"));
-    m_btnValueDelete = new QPushButton(tr("Óäàëèòü"));
+    m_btnValueAdd = new QPushButton(tr("Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"));
+    m_btnValueChange = new QPushButton(tr("Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"));
+    m_btnValueDelete = new QPushButton(tr("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"));
 
-    m_btnValueUp = new QPushButton(tr("Âûøå"));
-    m_btnValueDown = new QPushButton(tr("Íèæå"));
+    m_btnValueUp = new QPushButton(tr("Ð’Ñ‹ÑˆÐµ"));
+    m_btnValueDown = new QPushButton(tr("ÐÐ¸Ð¶Ðµ"));
 
     rvlayout->setSpacing(5);
     rvlayout->addWidget(m_btnValueAdd);
