@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<yaxpertsystem>
+	<domains>
+		<domain name="ЛОГИЧЕСКИЙ">
+			<value name="ДА" />
+			<value name="НЕТ"/>
+		</domain>	
+	</domains>
+	
+	<variables>
+		<variable name="БОЛЬ" askable="true" derivable="false" domain="ЛОГИЧЕСКИЙ" question="" />
+	</variables>
+	
+	<rules>
+		<rule name="R1" reasoning="because">
+			<premises>
+				<premise variable="БОЛЬ" value="ДА"/>
+			</premises>
+			<conclusions>
+				<conclusion variable="БОЛЬ" value="ДА"/>
+			</conclusions>
+		</rule>
+	</rules>
+
+</yaxpertsystem>
