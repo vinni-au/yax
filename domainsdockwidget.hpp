@@ -36,6 +36,8 @@ class DomainsWidget : public QSplitter
 public:
     explicit DomainsWidget(QWidget* parent = 0);
 
+    void connectSlots();
+
 protected slots:
     void domainAdd();
     void domainChange();
@@ -61,6 +63,8 @@ class DomainsDockWidget : public QDockWidget
 
 public:
     explicit DomainsDockWidget(QString title);
+
+    void connectSlots();
 
 protected:
     DomainsWidget* m_widget;

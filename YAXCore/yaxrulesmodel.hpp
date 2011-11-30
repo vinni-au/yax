@@ -13,7 +13,6 @@ class YAXRulesModel : public QAbstractItemModel
 
     RulesTreeItem* itemFromIndex(const QModelIndex& index) const;
 
-    void addFakeRule();
 public:
     explicit YAXRulesModel(QObject *parent = 0);
     ~YAXRulesModel();
@@ -36,6 +35,7 @@ public:
     {   reset();    }
 
     void addRule(Rule* rule, int index = -1);
+    void addFakeRule();
 
 signals:
 

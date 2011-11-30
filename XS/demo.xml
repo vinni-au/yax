@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <yaxpertsystem>
 	<domains>
 		<domain name="ЛОГИЧЕСКИЙ">
 			<value name="ДА" />
 			<value name="НЕТ"/>
+		</domain>
+		<domain name="ВОЗРАСТ">
+			<value name="СТАРЫЙ" />
+			<value name="МОЛОДОЙ" />
 		</domain>	
 	</domains>
 	
 	<variables>
-		<variable name="БОЛЬ" askable="true" derivable="false" domain="ЛОГИЧЕСКИЙ" question="У вас болит голова?" />
+		<variable name="БОЛЬ" askable="false" derivable="true" domain="ЛОГИЧЕСКИЙ" question="" />
+		<variable name="ВОЗРАСТ" askable="true" derivable="false" domain="ВОЗРАСТ" question="ВЫ СТАРЫ?" />
 	</variables>
 	
 	<rules>
 		<rule name="R1" reasoning="because">
 			<premises>
-				<premise variable="БОЛЬ" value="ДА"/>
+				<premise variable="ВОЗРАСТ" value="СТАРЫЙ"/>
 			</premises>
 			<conclusions>
 				<conclusion variable="БОЛЬ" value="ДА"/>

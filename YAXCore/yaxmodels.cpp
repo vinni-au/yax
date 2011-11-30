@@ -35,6 +35,9 @@ bool YAXModels::fromXML(QString filename)
         if (doc.setContent(&file)) {
             QDomElement root = doc.documentElement();
             if (root.tagName() == "yaxpertsystem" && root.childNodes().count() == 3) {
+                QMap<QString, Domain*> domainsMap;
+                QMap<QString, Value*> valuesMap;
+                QMap<QString, Variable*> variablesMap;
 
                 QDomElement domainsNode = root.childNodes().at(0).toElement();
                 if (domainsNode.tagName() == "domains")
@@ -45,8 +48,10 @@ bool YAXModels::fromXML(QString filename)
                             QDomElement valueElem = domainElem.childNodes().at(j).toElement();
                             Value* value = new Value(valueElem.attribute("name"), domain);
                             domain->values << value;
+                            valuesMap[value->name] = value;
                         }
                         m_domainModel->addDomain(domain);
+                        domainsMap[domain->name] = domain;
                     }
                 m_domainModel->needsReset();
                 m_currentValuesModel->needsReset();
@@ -59,35 +64,48 @@ bool YAXModels::fromXML(QString filename)
                         bool derivable = QVariant(variableElem.attribute("derivable")).toBool();
                         QString question = variableElem.attribute("question");
                         QString domainName = variableElem.attribute("domain");
-
-                        Domain* domain = 0;
-                        QList<Domain*> dlist = m_domainModel->domainsList();
-                        for (int i = 0; i < dlist.count() && !domain; ++i)
-                            if (dlist.at(i)->name == domainName)
-                                domain = dlist[i];
+                        Domain* domain = domainsMap[domainName];
 
                         Variable* variable = new Variable(variableElem.attribute("name"), domain,
                                                           derivable, askable, question);
                         m_variablesModel->addVariable(variable);
+                        variablesMap[variable->name] = variable;
                     }
                 m_variablesModel->needsReset();
 
                 QDomElement rulesNode = root.childNodes().at(2).toElement();
-                if (rulesNode.tagName() == "rules" && rulesNode.childNodes().count() == 2)
+                if (rulesNode.tagName() == "rules")
                     for (int i = 0; i < rulesNode.childNodes().count(); ++i) {
                         QDomElement ruleElement = rulesNode.childNodes().at(i).toElement();
+                        Rule* rule = new Rule(ruleElement.attribute("name"), ruleElement.attribute("reasoning"));
+
                         if (ruleElement.childNodes().count() == 2) {
                             QDomElement premisesElem = ruleElement.childNodes().at(0).toElement();
-                            for (int i = 0; i < premisesElem.childNodes().count(); ++i) {
-
+                            for (int j = 0; j < premisesElem.childNodes().count(); ++j) {
+                                QDomElement premiseElem = premisesElem.childNodes().at(j).toElement();
+                                QString variableName = premiseElem.attribute("variable");
+                                QString valueName = premiseElem.attribute("value");
+                                Variable* variable = variablesMap[variableName];
+                                Value* value = valuesMap[valueName];
+                                Premise* premise = new Premise(variable, value);
+                                rule->premises << premise;
                             }
 
                             QDomElement conclusionsElem = ruleElement.childNodes().at(1).toElement();
-                            for (int i = 0; i < conclusionsElem.childNodes().count(); ++i) {
-
+                            for (int j = 0; j < conclusionsElem.childNodes().count(); ++j) {
+                                QDomElement conclusionElem = conclusionsElem.childNodes().at(j).toElement();
+                                QString variableName = conclusionElem.attribute("variable");
+                                QString valueName = conclusionElem.attribute("value");
+                                Variable* variable = variablesMap[variableName];
+                                Value* value = valuesMap[valueName];
+                                Conclusion* conclusion = new Conclusion(variable, value);
+                                rule->conclusions << conclusion;
                             }
                         }
+
+                        m_rulesModel->addRule(rule);
                     }
+                m_rulesModel->addFakeRule();
                 m_rulesModel->needsReset();
 
             }

@@ -21,6 +21,7 @@ void MainWindow::fileOpen()
     fd.setNameFilter(tr("YAX expert systems (*.xml)"));
     if (fd.exec()) {
         YAXModels::instance()->fromXML(fd.selectedFiles().at(0));
+        //m_domainsDock->connectSlots();
     }
 }
 

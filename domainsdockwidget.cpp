@@ -58,9 +58,6 @@ DomainsWidget::DomainsWidget(QWidget *parent) :
     addWidget(lwidget);
     addWidget(rwidget);
 
-    m_domainsList->setModel(YAXModels::instance()->domainModel());
-    m_valuesList->setModel(YAXModels::instance()->currentValuesModel());
-
     QObject::connect(m_btnDomainAdd, SIGNAL(clicked()),
                      SLOT(domainAdd()));
     QObject::connect(m_btnDomainChange, SIGNAL(clicked()),
@@ -83,6 +80,14 @@ DomainsWidget::DomainsWidget(QWidget *parent) :
     QObject::connect(m_btnValueDown, SIGNAL(clicked()),
                      SLOT(valueDown()));
 
+    m_domainsList->setModel(YAXModels::instance()->domainModel());
+    m_valuesList->setModel(YAXModels::instance()->currentValuesModel());
+
+    connectSlots();
+}
+
+void DomainsWidget::connectSlots()
+{
     QObject::connect(m_domainsList->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                      YAXModels::instance()->domainModel(), SLOT(domainSelectionChanged(QItemSelection,QItemSelection)));
     QObject::connect(YAXModels::instance()->currentValuesModel(), SIGNAL(viewUpdateNeeded()),
@@ -217,4 +222,9 @@ DomainsDockWidget::DomainsDockWidget(QString title):
     QDockWidget(title)
 {
     setWidget(m_widget = new DomainsWidget);
+}
+
+void DomainsDockWidget::connectSlots()
+{
+    m_widget->connectSlots();
 }

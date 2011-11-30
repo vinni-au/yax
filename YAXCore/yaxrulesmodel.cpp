@@ -2,15 +2,7 @@
 
 YAXRulesModel::YAXRulesModel(QObject *parent) :
     QAbstractItemModel(parent), m_root(new RulesTreeItem(0, -1))
-{
-    Premise* premise = new Premise(new Variable("olol", new Domain("oolo")), new Value("v"));
-    Conclusion* conclusion = new Conclusion(new Variable("рост", new Domain("oolo")), new Value("выше среднего"));
-    addRule(new Rule("правило 1", "гладиолус 1",
-                     QList<Premise*>() << premise,
-                     QList<Conclusion*>() << conclusion));
-    addRule(new Rule("правило 2", "гладиолус 2"));
-    addFakeRule();
-}
+{   }
 
 YAXRulesModel::~YAXRulesModel()
 {
