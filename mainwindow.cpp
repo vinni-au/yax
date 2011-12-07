@@ -32,7 +32,13 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-
+    QFileDialog fd;
+    fd.setAcceptMode(QFileDialog::AcceptSave);
+    fd.setNameFilter(tr("YAX expert systems (*.xml)"));
+    //if (fd.exec()) {
+    //    YAXModels::instance()->toXML(fd.selectedFiles().at(0));
+    //}
+    YAXModels::instance()->toXML();
 }
 
 void MainWindow::fileQuit()

@@ -20,10 +20,21 @@ YAXModels* YAXModels::instance()
 
 bool YAXModels::toXML(QString filename)
 {
-    QFile file(filename);
-    if (file.open(QIODevice::WriteOnly)) {
-        file.close();
-    }
+    //QFile file(filename);
+    //if (file.open(QIODevice::WriteOnly)) {
+        QDomDocument doc("YAX");
+        QDomElement domainsElem = doc.createElement("yaxpertsystem");
+        doc.appendChild(domainsElem);
+
+        QDomElement test = doc.createElement("hello");
+        test.setNodeValue("ololo");
+
+        domainsElem.appendChild(test);
+
+        QMessageBox::about(0, "xml", doc.toByteArray(4));
+//        file.write(doc.toByteArray());
+//         file.close();
+ //   }
     return false;
 }
 
@@ -110,7 +121,7 @@ bool YAXModels::fromXML(QString filename)
 
             }
         }
-
+        QMessageBox::about(0, "xml", doc.toString(4));
         file.close();
     }
     return true;

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QHash>
 #include <QtXml>
+#include <QMessageBox>
 #include "yaxkb.hpp"
 #include "yaxdomainsmodel.hpp"
 #include "yaxvaluesmodel.hpp"
@@ -37,7 +38,7 @@ public:
     YAXRulesModel* rulesModel() const
     {   return m_rulesModel;    }
 
-    bool toXML(QString filename);
+    bool toXML(QString filename = "");
     bool fromXML(QString filename);
 
 public slots:
