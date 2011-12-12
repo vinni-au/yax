@@ -37,6 +37,9 @@ public:
     void addRule(Rule* rule, int index = -1);
     void addFakeRule();
 
+    QList<Rule*> rulesList() const
+    {   return m_rulesList; }
+
 signals:
 
 public slots:

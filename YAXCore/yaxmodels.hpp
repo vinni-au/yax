@@ -38,7 +38,7 @@ public:
     YAXRulesModel* rulesModel() const
     {   return m_rulesModel;    }
 
-    bool toXML(QString filename = "");
+    QString toXML(int indent = 4);
     bool fromXML(QString filename);
 
 public slots:

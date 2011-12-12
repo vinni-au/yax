@@ -18,10 +18,72 @@ YAXModels* YAXModels::instance()
     return m_instance;
 }
 
-bool YAXModels::toXML(QString filename)
+QString YAXModels::toXML(int indent)
 {
+    QDomDocument doc;
+    QDomElement root        = doc.createElement("yaxspertsystem");
+    QDomElement domains     = doc.createElement("domains");
+    QDomElement variables   = doc.createElement("variables");
+    QDomElement rules       = doc.createElement("rules");
 
-    return false;
+    doc.appendChild(root);
+    root.appendChild(domains);
+    root.appendChild(variables);
+    root.appendChild(rules);
+
+    QList<Domain*> domainslist = m_domainModel->domainsList();
+    for (int i = 0; i < domainslist.count(); ++i) {
+        Domain* d = domainslist.at(i);
+        QDomElement domain = doc.createElement("domain");
+        domain.setAttribute("name", d->name);
+        for (int j = 0; j < d->values.count(); ++j) {
+            QDomElement value = doc.createElement("value");
+            value.setAttribute("name", d->values.at(j)->name);
+            domain.appendChild(value);
+        }
+        domains.appendChild(domain);
+    }
+
+    QList<Variable*> variableslist = m_variablesModel->variableList();
+    for (int i = 0; i < variableslist.count(); ++i) {
+        Variable* v = variableslist.at(i);
+        QDomElement variable = doc.createElement("variable");
+        variable.setAttribute("name", v->name);
+        variable.setAttribute("askable", v->askable ? "true" : "false");
+        variable.setAttribute("derivable", v->derivable ? "true" : "false");
+        variable.setAttribute("domain", v->domain->name);
+        variable.setAttribute("question", v->question);
+        variables.appendChild(variable);
+    }
+
+    QList<Rule*> ruleslist = m_rulesModel->rulesList();
+    for (int i = 0; i < ruleslist.count(); ++i) {
+        Rule* r = ruleslist.at(i);
+        QDomElement rule = doc.createElement("rule");
+        rule.setAttribute("name", r->name);
+        rule.setAttribute("reasoning", r->reasoning);
+        QDomElement premises = doc.createElement("premises");
+        QDomElement conclusions = doc.createElement("conclusions");
+        for (int j = 0; j < r->premises.count(); ++j) {
+            QDomElement premise = doc.createElement("premise");
+            premise.setAttribute("variable", r->premises.at(j)->variable->name);
+            premise.setAttribute("value", r->premises.at(j)->value->name);
+            premises.appendChild(premise);
+        }
+        for (int j = 0; j < r->conclusions.count(); ++j) {
+            QDomElement premise = doc.createElement("conclusion");
+            premise.setAttribute("variable", r->conclusions.at(j)->variable->name);
+            premise.setAttribute("value", r->conclusions.at(j)->value->name);
+            conclusions.appendChild(premise);
+        }
+        rule.appendChild(premises);
+        rule.appendChild(conclusions);
+        rules.appendChild(rule);
+    }
+
+    QMessageBox::about(0, "", doc.toString(4));
+
+    return doc.toString(indent);
 }
 
 bool YAXModels::fromXML(QString filename)
@@ -107,7 +169,6 @@ bool YAXModels::fromXML(QString filename)
 
             }
         }
-        QMessageBox::about(0, "xml", doc.toString(4));
         file.close();
     }
     return true;

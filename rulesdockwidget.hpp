@@ -25,16 +25,6 @@ class RulesWidget : public QSplitter
     QPushButton* m_btnRuleUp;
     QPushButton* m_btnRuleDown;
 
-    QListView* m_premisesView;
-
-    QPushButton* m_btnPremiseAdd;
-    QPushButton* m_btnPremiseDelete;
-
-    QListView* m_conclusionsView;
-
-    QPushButton* m_btnConclusionAdd;
-    QPushButton* m_btnConclusionDelete;
-
 public:
     explicit RulesWidget(QWidget* parent = 0);
 };
