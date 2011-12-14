@@ -20,7 +20,20 @@ SOURCES += main.cpp\
     YAXCore/yaxdomainsmodel.cpp \
     YAXCore/yaxrulesmodel.cpp \
     YAXCore/rulestreeitem.cpp \
-    YAXCore/rulesdelegate.cpp
+    YAXCore/rulesdelegate.cpp \
+    Commands/domainaddcommand.cpp \
+    Commands/domaindeletecommand.cpp \
+    Commands/domainrenamecommand.cpp \
+    Commands/domainmovecommand.cpp \
+    Commands/valueaddcommand.cpp \
+    Commands/valuedeletecommand.cpp \
+    Commands/valuerenamecommand.cpp \
+    Commands/valuemovecommand.cpp \
+    Commands/variableaddcommand.cpp \
+    Commands/variabledeletecommand.cpp \
+    Commands/variablerenamecommand.cpp \
+    Commands/variablechangecommand.cpp \
+    Commands/variablemovecommand.cpp
 
 
 HEADERS  += mainwindow.hpp \
@@ -34,50 +47,18 @@ HEADERS  += mainwindow.hpp \
     YAXCore/yaxdomainsmodel.hpp \
     YAXCore/yaxrulesmodel.hpp \
     YAXCore/rulestreeitem.hpp \
-    YAXCore/rulesdelegate.hpp
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    YAXCore/rulesdelegate.hpp \
+    Commands.hpp \
+    Commands/domainaddcommand.hpp \
+    Commands/domaindeletecommand.hpp \
+    Commands/domainrenamecommand.hpp \
+    Commands/domainmovecommand.hpp \
+    Commands/valueaddcommand.hpp \
+    Commands/valuedeletecommand.hpp \
+    Commands/valuerenamecommand.hpp \
+    Commands/valuemovecommand.hpp \
+    Commands/variableaddcommand.hpp \
+    Commands/variabledeletecommand.hpp \
+    Commands/variablerenamecommand.hpp \
+    Commands/variablechangecommand.hpp \
+    Commands/variablemovecommand.hpp
