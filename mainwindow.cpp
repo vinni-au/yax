@@ -96,7 +96,7 @@ void MainWindow::setupUI()
 
     addDockWidget(Qt::LeftDockWidgetArea, m_domainsDock);
     addDockWidget(Qt::LeftDockWidgetArea, m_variablesDock);
-    addDockWidget(Qt::LeftDockWidgetArea, m_rulesDock);
+    addDockWidget(Qt::RightDockWidgetArea, m_rulesDock);
 
     QMenuBar* mainMenu = menuBar();
 
