@@ -33,7 +33,20 @@ SOURCES += main.cpp\
     Commands/variabledeletecommand.cpp \
     Commands/variablerenamecommand.cpp \
     Commands/variablechangecommand.cpp \
-    Commands/variablemovecommand.cpp
+    Commands/variablemovecommand.cpp \
+    Commands/ruleaddcommand.cpp \
+    Commands/ruledeletecommand.cpp \
+    Commands/rulerenamecommand.cpp \
+    Commands/reasoningchangecommand.cpp \
+    Commands/premiseaddcommand.cpp \
+    Commands/premisedeletecommand.cpp \
+    Commands/conclusionaddcommand.cpp \
+    Commands/conclusiondeletecommand.cpp \
+    Commands/premisechangecommand.cpp \
+    Commands/conclusionchangecommand.cpp \
+    Commands/rulemovecommand.cpp \
+    Commands/premisemovecommand.cpp \
+    Commands/conclusionmovecommand.cpp
 
 
 HEADERS  += mainwindow.hpp \
@@ -61,4 +74,17 @@ HEADERS  += mainwindow.hpp \
     Commands/variabledeletecommand.hpp \
     Commands/variablerenamecommand.hpp \
     Commands/variablechangecommand.hpp \
-    Commands/variablemovecommand.hpp
+    Commands/variablemovecommand.hpp \
+    Commands/ruleaddcommand.hpp \
+    Commands/ruledeletecommand.hpp \
+    Commands/rulerenamecommand.hpp \
+    Commands/reasoningchangecommand.hpp \
+    Commands/premiseaddcommand.hpp \
+    Commands/premisedeletecommand.hpp \
+    Commands/conclusionaddcommand.hpp \
+    Commands/conclusiondeletecommand.hpp \
+    Commands/premisechangecommand.hpp \
+    Commands/conclusionchangecommand.hpp \
+    Commands/rulemovecommand.hpp \
+    Commands/premisemovecommand.hpp \
+    Commands/conclusionmovecommand.hpp
