@@ -11,6 +11,8 @@
 #include "yaxvariablesmodel.hpp"
 #include "yaxrulesmodel.hpp"
 
+#define yaxModels() (YAXModels::instance())
+
 class YAXModels : public QObject
 {
     Q_OBJECT

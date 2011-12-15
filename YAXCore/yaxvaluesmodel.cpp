@@ -109,5 +109,5 @@ bool YAXValuesModel::checkValueName(QString &valueName)
 void YAXValuesModel::setValuesList(QList<Value *> list)
 {
     m_valuesList = list;
-    emit viewUpdateNeeded();
+    emit dataChanged(createIndex(0, 0), createIndex(list.count(), 0));
 }

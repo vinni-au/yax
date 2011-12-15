@@ -11,6 +11,8 @@
 #include <QFont>
 #include <QGroupBox>
 #include "YAXCore/yaxmodels.hpp"
+#include "Commands.hpp"
+#include "commandstack.hpp"
 
 class DomainsWidget : public QSplitter
 {

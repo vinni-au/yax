@@ -3,6 +3,8 @@
 
 #include <QUndoCommand>
 #include "./../YAXCore/yaxkb.hpp"
+#include "./../YAXCore/yaxmodels.hpp"
+
 
 class DomainAddCommand : public QUndoCommand
 {

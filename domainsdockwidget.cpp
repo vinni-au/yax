@@ -96,10 +96,21 @@ void DomainsWidget::connectSlots()
 
 void DomainsWidget::domainAdd()
 {
-    YAXDomainsModel* model = YAXModels::instance()->domainModel();
+    YAXDomainsModel* model = yaxModels()->domainModel();
+    QItemSelectionModel* selected = m_domainsList->selectionModel();
+    int index;
     int count = model->rowCount();
-    model->insertRow(count);
-    m_domainsList->edit(model->index(count));
+    if (selected->selectedRows().count() == 0) {
+        index = model->rowCount();
+    } else index = selected->selectedRows().at(0).row();
+    model->insertRow(index);
+    m_domainsList->edit(model->index(index));
+    if (count == model->rowCount() + 1) {
+        selected->clear();
+        selected->select(model->index(index), QItemSelectionModel::Select);
+        DomainAddCommand* cmd = new DomainAddCommand(model->domainsList().at(index)->name, index);
+        undoStack()->push(cmd);
+    }
 }
 
 void DomainsWidget::domainChange()
@@ -117,6 +128,7 @@ void DomainsWidget::domainDelete()
     int count = selected->selectedRows().count();
     for (int i = 0; i < count; ++i)
         model->removeRow(selected->selectedRows().at(i).row(), QModelIndex());
+    selected->clear();
 }
 
 void DomainsWidget::domainUp()
@@ -155,7 +167,7 @@ void DomainsWidget::domainDown()
 
 void DomainsWidget::valueAdd()
 {
-    YAXValuesModel* model = YAXModels::instance()->currentValuesModel();
+    YAXValuesModel* model = yaxModels()->currentValuesModel();
     int count = model->rowCount();
     model->insertRow(count);
     m_valuesList->edit(model->index(count));

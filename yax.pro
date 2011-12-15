@@ -46,7 +46,8 @@ SOURCES += main.cpp\
     Commands/conclusionchangecommand.cpp \
     Commands/rulemovecommand.cpp \
     Commands/premisemovecommand.cpp \
-    Commands/conclusionmovecommand.cpp
+    Commands/conclusionmovecommand.cpp \
+    commandstack.cpp
 
 
 HEADERS  += mainwindow.hpp \
@@ -87,4 +88,5 @@ HEADERS  += mainwindow.hpp \
     Commands/conclusionchangecommand.hpp \
     Commands/rulemovecommand.hpp \
     Commands/premisemovecommand.hpp \
-    Commands/conclusionmovecommand.hpp
+    Commands/conclusionmovecommand.hpp \
+    commandstack.hpp

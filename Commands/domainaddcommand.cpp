@@ -9,10 +9,13 @@ DomainAddCommand::DomainAddCommand(QString name, int position, QUndoCommand *par
 
 void DomainAddCommand::undo()
 {
-
+    yaxModels()->domainModel()->removeRow(m_position);
 }
 
 void DomainAddCommand::redo()
 {
-
+    YAXDomainsModel* model = yaxModels()->domainModel();
+    model->insertRow(m_position);
+    model->setData(model->index(m_position), m_name);
+    model->dataChanged(model->index(m_position), model->index(model->domainsList().count()));
 }
